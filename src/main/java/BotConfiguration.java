@@ -6,7 +6,7 @@ import javax.security.auth.login.LoginException;
 
 public class BotConfiguration {
     public static JDA jda;
-
+    public static String prefix = "-";
     /**
      * Method runs as soon as bot starts
      */
@@ -15,5 +15,7 @@ public class BotConfiguration {
         //jda = new JDABuilder(AccountType.bot).setToken("").buildAsync();
         jda = JDABuilder.createDefault(DiscordConstants.TOKEN).build();
         jda.getPresence().setActivity(Activity.playing("Working Really Hard"));
+
+        jda.addEventListener(new musicCommand());
     }
 }
