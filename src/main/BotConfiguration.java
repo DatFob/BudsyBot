@@ -12,12 +12,15 @@ public class BotConfiguration {
     /**
      * Method runs as soon as bot starts
      */
+    private BotConfiguration(){}
+
     public static void main(String[] args) throws LoginException{
+
         //JDA Version 4.2 changed way to build, old version is:
         //jda = new JDABuilder(AccountType.bot).setToken("").buildAsync();
-        jda = JDABuilder.createDefault(DiscordInfo.TOKEN).build();
+        jda = JDABuilder.createDefault(DotenvHelper.get("TOKEN")).build();
         jda.getPresence().setActivity(Activity.playing("Working Really Hard"));
 
-        jda.addEventListener(new musicCommand());
+        jda.addEventListener(new EventListener());
     }
 }

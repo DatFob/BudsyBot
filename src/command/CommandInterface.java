@@ -8,5 +8,5 @@ public interface CommandInterface {
 
     String getName();
 
-    default List<String> getAliases(){return Arrays.asList();}
+    default List<String> getAliases(){return List.of();}
 }

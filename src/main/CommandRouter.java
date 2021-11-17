@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class CommandRouter {
     private final List<CommandInterface> commands = new ArrayList<>();
@@ -33,6 +34,6 @@ public class CommandRouter {
     }
 
     void handle(GuildMessageReceivedEvent event){
-
+        String[] message = event.getMessage().getContentRaw().replaceFirst("(?i)" + Pattern.quote("prefix"), "").split("\\s+");
     }
 }
