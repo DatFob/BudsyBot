@@ -8,5 +8,8 @@ public interface CommandInterface {
 
     String getName();
 
+    String getHelp();
+
+    //List.of()
     default List<String> getAliases(){return List.of();}
 }
