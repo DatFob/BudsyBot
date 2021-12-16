@@ -12,6 +12,10 @@ import javax.security.auth.login.LoginException;
 import java.util.EnumSet;
 import java.util.function.Supplier;
 
+/**
+ * Main driver class to start the bot
+ * Builds a JDA variable with proper configuration
+ */
 public class BotConfiguration {
     public static JDA jda;
     /**

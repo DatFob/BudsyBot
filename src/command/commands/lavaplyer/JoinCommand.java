@@ -8,6 +8,10 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.VoiceChannel;
 import net.dv8tion.jda.api.managers.AudioManager;
 
+/**
+ * Command class : JoinCommand
+ * Moves the bot to the corresponding voice channel
+ */
 public class JoinCommand implements CommandInterface {
     @Override
     public void handle(CommandContext context) {

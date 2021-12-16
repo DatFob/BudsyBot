@@ -9,6 +9,9 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.List;
 
+/**
+ * Command Context class store information an "event" and argument
+ */
 public class CommandContext{
     private final GuildMessageReceivedEvent event;
     private final List<String> arguments;

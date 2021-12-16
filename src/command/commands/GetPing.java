@@ -9,7 +9,10 @@ import net.dv8tion.jda.api.requests.RestAction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
+/**
+ * Command class : GetPing
+ * Returns to the user the ping between user machine and discord server in ms
+ */
 public class GetPing implements CommandInterface {
     private static final Logger log = LoggerFactory.getLogger(GetPing.class);
     @Override

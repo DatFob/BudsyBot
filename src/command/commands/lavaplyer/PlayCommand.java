@@ -10,6 +10,10 @@ import org.w3c.dom.Text;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+/**
+ * Command class : PlayCommand
+ * validate voice state, url or song name
+ */
 public class PlayCommand implements CommandInterface {
     @Override
     public void handle(CommandContext context) {

@@ -7,6 +7,10 @@ import net.dv8tion.jda.api.entities.TextChannel;
 
 import java.util.List;
 
+/**
+ * Command class : GetHelp
+ * Returns a list of commands that are supported by this program
+ */
 public class GetHelp implements CommandInterface {
 
     private final CommandRouter router;

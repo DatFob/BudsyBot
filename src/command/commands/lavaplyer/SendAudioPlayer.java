@@ -7,6 +7,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.nio.ByteBuffer;
 
+/**
+ * Command class : SendAudioPlayer
+ * Implements jda library Audiosendhandler
+ * sends the audio in byte form from running machine (the machine runs the program)
+ */
 public class SendAudioPlayer implements AudioSendHandler {
     private final AudioPlayer audioPlayer;
     //store bytes and send to discord

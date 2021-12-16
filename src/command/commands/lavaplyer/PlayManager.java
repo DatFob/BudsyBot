@@ -16,6 +16,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Command class : PlayManager
+ * Singleton class to manage all tracks
+ * sends the audio in byte form from running machine (the machine runs the program)
+ */
 public class PlayManager {
     private static PlayManager singleton;
 
@@ -38,6 +43,7 @@ public class PlayManager {
         });
     }
 
+    //Load the track either using track URL or LAVA search to get the track
     public void loadAndPlay(TextChannel channel, String trackURL){
         GuildMusicManger musicManger = this.getMusic(channel.getGuild());
 
@@ -75,6 +81,8 @@ public class PlayManager {
             public void loadFailed(FriendlyException e) {
 
             }
+
+
         });
     }
 

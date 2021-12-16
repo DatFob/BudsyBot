@@ -1,7 +1,6 @@
 package command;
 
-import command.CommandContext;
-import command.CommandInterface;
+
 import command.commands.GetHelp;
 import command.commands.GetKick;
 import command.commands.GetPing;
@@ -18,10 +17,15 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
+/**
+ * CommandRouter class
+ * Serves as a manager for all commands
+ */
 public class CommandRouter {
     private static final Logger log = LoggerFactory.getLogger(CommandRouter.class);
     private final List<CommandInterface> commands = new ArrayList<>();
 
+    //constructor
     public CommandRouter(){
         addCommand(new GetPing());
         addCommand(new GetHelp(this));
@@ -30,8 +34,8 @@ public class CommandRouter {
         addCommand(new JoinCommand());
     }
 
+    //add a new command to our manager
     private void addCommand(CommandInterface newCommand){
-        //if(this.commands.stream().anyMatch())
         boolean name = this.commands.stream().anyMatch((it) -> it.getName().equalsIgnoreCase(newCommand.getName()));
 
         if(name){
@@ -40,10 +44,12 @@ public class CommandRouter {
         commands.add(newCommand);
     }
 
+    //return all commands
     public List<CommandInterface> getCommands(){
         return commands;
     }
 
+    //return a command object
     public CommandInterface getCommand(String target){
         for (CommandInterface command : this.commands){
             if(command.getName().equals(target.toLowerCase()) || command.getAliases().contains(target.toLowerCase())){
@@ -53,8 +59,10 @@ public class CommandRouter {
         return null;
     }
 
-    //By not having accesser modifier, I'm making sure this method is visible only in its package
+    //Handle certain commands
+    // By not having accesser modifier, I'm making sure this method is visible only in its package
     void handle(GuildMessageReceivedEvent event){
+        //ignore case then take out prefix www
         String[] message = event.getMessage().getContentRaw().replaceFirst("(?i)" + "-", "").split("\\s+");
 
         String key = message[0].toLowerCase();

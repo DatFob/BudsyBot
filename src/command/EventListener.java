@@ -10,8 +10,8 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.slf4j.LoggerFactory;
 
 /**
- * JDA4 Documentation & functionalities
- * https://ci.dv8tion.net/job/JDA/javadoc/net/dv8tion/jda/api/hooks/ListenerAdapter.html
+ * EventListener class extends ListenerAdapter from JDA library
+ * Actively listens to new commands and handle them
  */
 public class EventListener extends ListenerAdapter {
 
@@ -35,7 +35,8 @@ public class EventListener extends ListenerAdapter {
 
         //client side's message
         String raw = event.getMessage().getContentRaw();
-        
+
+        //Only I can shut down the bot
         if (raw.equalsIgnoreCase("-shutdown") && user.getId().equals(DotenvHelper.get("USERID"))){
             log.info("Shutting down the bot");
             event.getJDA().shutdown();
@@ -43,6 +44,8 @@ public class EventListener extends ListenerAdapter {
             event.getJDA().getHttpClient().dispatcher().executorService().shutdown();
             return;
         }
+
+        //any other commands, we handle such command
         if(raw.startsWith("-")){
             log.info("raw message is" + raw);
             router.handle(event);

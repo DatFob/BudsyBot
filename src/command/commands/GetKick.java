@@ -9,7 +9,12 @@ import net.dv8tion.jda.api.entities.TextChannel;
 
 import java.util.List;
 
+/**
+ * Command class : GetKick
+ * Kick an user out of the server with proper
+ */
 public class GetKick implements CommandInterface {
+
     @Override
     public void handle(CommandContext context) {
         TextChannel channel = context.getChannel();
